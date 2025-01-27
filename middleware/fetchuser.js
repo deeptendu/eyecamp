@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken')
-
-const JWT_SECRET = 'myscreatKeyaaaaaa@434341';
+const JWT_SECRET = require('../config')
 
 
 const fetchUser = (req, res, next) => {
@@ -10,6 +9,7 @@ const fetchUser = (req, res, next) => {
     }
     try {
         const data = jwt.verify(token, JWT_SECRET);
+      //  console.log('user found '+JSON.stringify(data.user))
         req.user = data.user;
         next();
     }

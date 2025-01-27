@@ -29,7 +29,6 @@ router.post('/api/auth/createuser', [
             email: req.body.email,
             password: securePassword
         })
-        const token=jwt.sign({},'mysc')
         res.json({ message: "user created sucesfully" })
     }
     catch(error){
